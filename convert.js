@@ -14,7 +14,6 @@
     <img id="weatherImage" src="" alt="Weather Image">
 
     <script>
-        // Conversion functions
         function convertCtoF(celsius) {
             return celsius * 9/5 + 32;
         }
@@ -23,7 +22,6 @@
             return (fahrenheit - 32) * 5/9;
         }
 
-        // DOM loaded event handler
         function domLoaded() {
             const cInput = document.getElementById('cInput');
             const fInput = document.getElementById('fInput');
@@ -31,7 +29,6 @@
             const errorMessage = document.getElementById('errorMessage');
             const weatherImage = document.getElementById('weatherImage');
 
-            // Clear opposing input field when one input changes
             cInput.addEventListener('input', function() {
                 fInput.value = '';
             });
@@ -40,7 +37,6 @@
                 cInput.value = '';
             });
 
-            // Register click event handler for Convert button
             convertButton.addEventListener('click', function() {
                 if (cInput.value !== '') {
                     const celsius = parseFloat(cInput.value);
@@ -60,7 +56,6 @@
                     }
                 }
 
-                // Set the weather image based on Fahrenheit temperature
                 const fahrenheitValue = parseFloat(fInput.value);
                 if (!isNaN(fahrenheitValue)) {
                     if (fahrenheitValue < 32) {
@@ -74,7 +69,6 @@
             });
         }
 
-        // Register the DOMContentLoaded event
         document.addEventListener('DOMContentLoaded', domLoaded);
     </script>
 </body>

@@ -17,26 +17,26 @@ function domLoaded() {
     });
 
    // Click event handler for the Convert button
-convertButton.addEventListener("click", () => {
+    convertButton.addEventListener("click", () => {
     const celsiusValue = parseFloat(cInput.value);
     const fahrenheitValue = parseFloat(fInput.value);
 
     if (!isNaN(celsiusValue) && isNaN(fahrenheitValue)) {
         // Convert Celsius to Fahrenheit
         const convertedFahrenheit = convertCtoF(celsiusValue);
-        fInput.value = convertedFahrenheit.toFixed(0); // Display with 2 decimal places
+        fInput.value = convertedFahrenheit.toFixed(0); // Display with no decimal places
         showImage(convertedFahrenheit, weatherImage);
         errorMessage.innerHTML = "";
     } else if (isNaN(celsiusValue) && !isNaN(fahrenheitValue)) {
         // Convert Fahrenheit to Celsius
         const convertedCelsius = convertFtoC(fahrenheitValue);
-        cInput.value = convertedCelsius.toFixed(0); // Display with 2 decimal places
+        cInput.value = convertedCelsius.toFixed(0); // Display with no decimal places
         showImage(fahrenheitValue, weatherImage);
         errorMessage.innerHTML = "";
     } else {
         // Handle bad input
-        errorMessage.innerHTML = `${cInput.value} is not a number`;
-        weatherImage.src = "";
+        errorMessage.innerHTML = "Invalid input. Enter a number in one of the fields.";
+    weatherImage.src = "";
     }
 });
 
